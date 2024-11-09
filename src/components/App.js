@@ -10,12 +10,16 @@ console.log({ CATEGORIES, TASKS });
 function App() {
   const [ tasks, setTasks] = useState(TASKS)
 
+  const handleDeleteTask = (taskText) => {
+    setTasks(tasks.filter((task) => task.text !== taskText))
+  }
+ 
   return (
     <div className="App">
       <h2>My tasks</h2>
       <CategoryFilter />
       <NewTaskForm />
-      <TaskList tasks={tasks}/>
+      <TaskList tasks={tasks} onDeleteTask={handleDeleteTask}/>
     </div>
   );
 }
