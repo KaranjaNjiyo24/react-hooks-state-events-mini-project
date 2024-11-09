@@ -1,7 +1,7 @@
 import React from "react";
 import Task from "./Task";
 
-function TaskList({ tasks }) {
+function TaskList({ tasks, onDeleteTask }) {
   return (
     <div className="tasks">
       {/* display a list of tasks using Task component */
@@ -10,6 +10,7 @@ function TaskList({ tasks }) {
             key={task.text}
             text={task.text}
             category={task.category}
+            onDeleteTask={onDeleteTask}
           />
         ))}
     </div>
